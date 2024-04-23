@@ -37,7 +37,7 @@ int main(){
     // option 2
     std::cout << (date < 10 ? "0" : "") << date << '.' 
         << (month < 10 ? "0" : "" ) << month << '.' 
-        << (year % 100 < 10 ? "0" : "") << year % 100 << endl;
+        << (year % 100 < 10 ? "0" : "") << (year < 100 ? year % 10 : year % 100) << endl;
     
     // option 3
     std::string dSuffix = "st";

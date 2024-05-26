@@ -44,6 +44,18 @@ int main(){
 
 }
 
+// is_number ?
+bool is_number(std::string str){
+    
+    for (short i {0}; i < str.length(); i++){
+        char ch {str[i]};
+        if (ch < '0' || ch > '9') return false; 
+    }
+    
+    return true;
+    
+}
+
 // main menu
 int main_menu(){
 
@@ -63,8 +75,14 @@ int main_menu(){
     
         if (validOpt == true) std::cout << "Choose an option [1-5]: ";
         else std::cout << "Invalid option. Choose an option [1-5]: ";
-        std::cin >> option;
-
+        
+        // input option and check if input is a number
+        // is input is a number then convert it to int,
+        // otherwise set to invalid option
+        std::string x;
+        std::getline(std::cin, x);
+        is_number(x) ? option = std::stoi(x) : option = -1;
+        
         validOpt = false;
 
     } while(option < 1 || option > 5);
@@ -79,10 +97,6 @@ void add_row_marks(){
     std::cout << "\n#######################################\n"
     << "       [1] Add new student marks       \n"
     << "#######################################\n\n";
-
-    // clear console leftovers !!!!!!!!!
-    { std::string x;
-    getline(std::cin, x); }
     
     // input name
     std::cout << "Enter student name: ";
@@ -103,7 +117,12 @@ void add_row_marks(){
         else if (sbj == 1) std::cout << "Enter marks for 'Pysics': ";
         else if (sbj == 2) std::cout << "Enter marks for 'ICT': ";
 
-        std::cin >> mark;
+        // input option and check if input is a number
+        // is input is a number then convert it to int,
+        // otherwise set to invalid mark
+        std::string x;
+        std::getline(std::cin, x);
+        is_number(x) ? mark = std::stoi(x) : mark = -1;
 
         if (mark < 0 || mark > 100) {
             validMark = false;

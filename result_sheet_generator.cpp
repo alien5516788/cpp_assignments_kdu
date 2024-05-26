@@ -6,7 +6,6 @@ using std::endl;
 // student data
 std::string studentNames[10] = {};
 int studentMarks[10][3] = {};
-
 short studentCount {0};
 
 // statistics
